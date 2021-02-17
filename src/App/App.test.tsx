@@ -12,7 +12,7 @@ describe('Testing itsapark challenge', () => {
   });
 
   test('Shows an error when both inputs are missing', () => {
-    const processResult = processRange('', '');
+    const processResult = processRange(undefined, undefined);
 
     expect(processResult).toEqual(
       'Please enter both numbers before processing.'
@@ -20,7 +20,7 @@ describe('Testing itsapark challenge', () => {
   });
 
   test('Shows an error when first input is missing', () => {
-    const processResult = processRange('', '17');
+    const processResult = processRange(undefined, 17);
 
     expect(processResult).toEqual(
       'Please enter both numbers before processing.'
@@ -28,7 +28,7 @@ describe('Testing itsapark challenge', () => {
   });
 
   test('Shows an error when second input is missing', () => {
-    const processResult = processRange('4', '');
+    const processResult = processRange(4, undefined);
 
     expect(processResult).toEqual(
       'Please enter both numbers before processing.'
@@ -36,7 +36,7 @@ describe('Testing itsapark challenge', () => {
   });
 
   test('Shows an error when second input is greater than first one', () => {
-    const processResult = processRange('200', '1');
+    const processResult = processRange(300, 5);
 
     expect(processResult).toEqual(
       'Please make sure first number is greater than second one.'
@@ -44,13 +44,13 @@ describe('Testing itsapark challenge', () => {
   });
 
   test('Shows correct result when both inputs are correct (a)', () => {
-    const processResult = processRange('1', '9');
+    const processResult = processRange(1, 9);
 
     expect(processResult).toEqual(3);
   });
 
   test('Shows correct result when both inputs are correct (b)', () => {
-    const processResult = processRange('100', '4500');
+    const processResult = processRange(100, 4500);
 
     expect(processResult).toEqual(1467);
   });

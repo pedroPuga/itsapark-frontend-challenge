@@ -12,8 +12,8 @@ import { processRange } from './RangeProcessor';
 
 const App: React.FC<{}> = () => {
   const classes = useStyles();
-  const [firstValue, setFirstValue] = useState<string>('');
-  const [secondValue, setSecondValue] = useState<string>('');
+  const [firstValue, setFirstNumber] = useState<number | undefined>();
+  const [secondValue, setSecondNumber] = useState<number | undefined>();
 
   return (
     <Container maxWidth="sm" className={classes.container}>
@@ -37,7 +37,11 @@ const App: React.FC<{}> = () => {
               type="number"
               className={classes.inputNumber}
               value={firstValue}
-              onChange={(e) => setFirstValue(e.target.value)}
+              onChange={(e) => {
+                setFirstNumber(
+                  e.target.value ? parseInt(e.target.value) : undefined
+                );
+              }}
             />
           </Grid>
           <Grid item xs={6}>
@@ -47,7 +51,11 @@ const App: React.FC<{}> = () => {
               type="number"
               className={classes.inputNumber}
               value={secondValue}
-              onChange={(e) => setSecondValue(e.target.value)}
+              onChange={(e) => {
+                setSecondNumber(
+                  e.target.value ? parseInt(e.target.value) : undefined
+                );
+              }}
             />
           </Grid>
           <Grid item xs={12}>
