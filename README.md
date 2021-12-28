@@ -1,6 +1,6 @@
 ## Start up commands
 
-yarn
+yarn &&
 yarn start
 
 ## Test command
